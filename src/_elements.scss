@@ -1,0 +1,90 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+
+@mixin gradient($color: #F5F5F5, $start: #EEE, $stop: #FFF) {
+  background: $color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, $start),
+                               color-stop(1, $stop));
+  background: -ms-linear-gradient(bottom,
+                                  $start,
+                                  $stop);
+  background: -moz-linear-gradient(center bottom,
+                                   $start 0%,
+                                   $stop 100%);
+  background: -o-linear-gradient($stop,
+                                 $start);
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",$stop,$start));
+}
+@mixin bw-gradient($color: #F5F5F5, $start: 0, $stop: 255) {
+  background: $color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, rgb($start,$start,$start)),
+                               color-stop(1, rgb($stop,$stop,$stop)));
+  background: -ms-linear-gradient(bottom,
+                                  rgb($start,$start,$start) 0%,
+                                  rgb($stop,$stop,$stop) 100%);
+  background: -moz-linear-gradient(center bottom,
+                                   rgb($start,$start,$start) 0%,
+                                   rgb($stop,$stop,$stop) 100%);
+  background: -o-linear-gradient(rgb($stop,$stop,$stop),
+                                 rgb($start,$start,$start));
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",rgb($stop,$stop,$stop),rgb($start,$start,$start)));
+}
+@mixin bordered($top-color: #EEE, $right-color: #EEE, $bottom-color: #EEE, $left-color: #EEE) {
+  border-top: solid 1px $top-color;
+  border-left: solid 1px $left-color;
+  border-right: solid 1px $right-color;
+  border-bottom: solid 1px $bottom-color;
+}
+@mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
+  -webkit-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+  -moz-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+  box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+}
+@mixin transition-duration($duration: 0.2s) {
+  -moz-transition-duration: $duration;
+  -webkit-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+@mixin rotation($deb:5deg){
+  @include transform(rotate($deb));
+}
+@mixin scale($ratio:1.5){
+  @include transform(scale($ratio));
+}
+@mixin columns($colcount: 250px, $colcount: 0, $colgap: 50px, $columnRuleColor: #EEE, $columnRuleStyle: solid, $columnRuleWidth: 1px) {
+  -moz-column-width: $colcount;
+  -moz-column-count: $colcount;
+  -moz-column-gap: $colgap;
+  -moz-column-rule-color: $columnRuleColor;
+  -moz-column-rule-style: $columnRuleStyle;
+  -moz-column-rule-width: $columnRuleWidth;
+  -webkit-column-width: $colcount;
+  -webkit-column-count: $colcount;
+  -webkit-column-gap: $colgap;
+  -webkit-column-rule-color: $columnRuleColor;
+  -webkit-column-rule-style: $columnRuleStyle;
+  -webkit-column-rule-width: $columnRuleWidth;
+  column-width: $colcount;
+  column-count: $colcount;
+  column-gap: $colgap;
+  column-rule-color: $columnRuleColor;
+  column-rule-style: $columnRuleStyle;
+  column-rule-width: $columnRuleWidth;
+}
+
+@mixin background-clip($argument: padding-box) {
+  -moz-background-clip: $argument;
+  -webkit-background-clip: $argument;
+  background-clip: $argument;
+}

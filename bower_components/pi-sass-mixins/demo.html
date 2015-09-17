@@ -1,0 +1,43 @@
+<html ng-app="demo">
+	<head>
+		<link rel="stylesheet" type="text/css" href="release/demo.css"/>
+		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+		<script type="text/javascript" src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+		(function(){
+			angular
+				.module('demo', ['ui.grid']);
+			angular
+				.module('demo')
+				.controller('MainCtrl', ['$scope', function($scope){
+					$scope.myData = [];
+
+					for (var i = 0; i < 30; i++) {
+						$scope.myData.push({
+				        "firstName": "Cox",
+				        "lastName": "Carney",
+				        "company": "Enormo",
+				        "employed": true
+				    });
+					}
+
+				}]);
+
+		})();
+		</script>
+		<link href="release/demo.css"/>
+		<style type="text/css">
+		.myGrid {
+		    width: 500px;
+		    height: 250px;
+		  }
+		</style>
+	</head>
+	<body>
+		<div ng-controller="MainCtrl">
+		  <div ui-grid="{ data: myData }" class="myGrid"></div>
+		</div>
+
+	</body>
+</html>

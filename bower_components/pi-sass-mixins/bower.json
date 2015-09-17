@@ -1,0 +1,21 @@
+{
+  "name": "pi-sass-mixins",
+  "version": "0.0.1",
+  "description": "The SASS library for ui-grid",
+  "main": "src/_boot.scss",
+  "authors": [
+    "Guilherme Cardoso"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.codigo.ovh",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests",
+    "release"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
+}
